@@ -1,0 +1,119 @@
+:root {
+  color-scheme: light;
+  --surface-1: #fcfcfb;
+  --surface-2: #ffffff;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #7a7974;
+  --grid: #e6e5e0;
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --surface-1: #1a1a19;
+    --surface-2: #232322;
+    --text-primary: #f0efec;
+    --text-secondary: #c3c2b7;
+    --text-muted: #8f8e86;
+    --grid: #2e2e2c;
+    --series-1: #3987e5;
+    --series-2: #d95926;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--surface-1);
+  color: var(--text-primary);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+a { color: var(--series-1); }
+
+
+/* Intro and outro */
+.intro, .outro {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 18vh 16px 10vh;
+}
+.outro { padding: 10vh 16px 12vh; }
+.kicker { color: var(--series-2); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; margin: 0; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; margin: 8px 0 16px; }
+.lede { font-size: 1.15rem; color: var(--text-secondary); }
+.credits { font-size: 0.85rem; color: var(--text-muted); }
+
+/* Scrollytelling layout: text left, sticky chart right */
+.scrolly {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(0, 1.6fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.steps { grid-column: 1; grid-row: 1; }
+.sticky {
+  grid-column: 2; grid-row: 1;
+  position: sticky; top: 0;
+  height: 100vh;
+  margin: 0;
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+.step {
+  min-height: 90vh;
+  display: flex; flex-direction: column; justify-content: center;
+  opacity: 0.35;
+  transition: opacity 0.3s;
+}
+.step.is-active { opacity: 1; }
+.step h2 { font-size: 1.3rem; margin: 0 0 8px; }
+.step p { margin: 0; color: var(--text-secondary); }
+.step p + p { margin-top: 12px; }
+
+/* Mobile: chart sticks to the top, text cards scroll over the space below */
+@media (max-width: 760px) {
+  .scrolly { display: block; }
+  .sticky { height: auto; padding: 12px 0; background: var(--surface-1); z-index: 1; }
+  .step { min-height: 70vh; justify-content: flex-end; padding-bottom: 20vh; }
+  .step > * { background: var(--surface-2); }
+  .step h2 { margin: 0; padding: 16px 16px 0; border-radius: 12px 12px 0 0; }
+  .step p { padding: 8px 16px 16px; border-radius: 0 0 12px 12px; }
+}
+
+/* Chart */
+#chart svg text { fill: var(--text-secondary); font-size: 12px; }
+#chart .axis-label { font-weight: 600; }
+#chart .counter { fill: var(--text-primary); font-size: 18px; font-weight: 600; }
+#chart .direct-label { fill: var(--text-primary); font-size: 13px; font-weight: 600; }
+.grid-line { stroke: var(--grid); }
+.bar-all, .bar-weekday { fill: var(--series-1); }
+.bar-weekend { fill: var(--series-2); }
+.bar.is-hover { filter: brightness(0.75); }
+.bar { transition: opacity 0.4s; }
+.bar.is-dim { opacity: 0.2; }
+.stat line { stroke: var(--text-primary); stroke-width: 2; stroke-dasharray: 5 4; }
+.stat-median line { stroke-dasharray: 1 4; stroke-linecap: round; }
+#chart .stat text { fill: var(--text-primary); font-size: 13px; font-weight: 600; }
+
+.legend { display: flex; gap: 20px; font-size: 0.85rem; color: var(--text-secondary); min-height: 1.6em; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.sw-weekday { background: var(--series-1); }
+.sw-weekend { background: var(--series-2); }
+
+.tooltip {
+  position: absolute; pointer-events: none; opacity: 0;
+  background: var(--surface-2); color: var(--text-primary);
+  border: 1px solid var(--grid); border-radius: 8px;
+  padding: 8px 10px; font-size: 0.85rem; line-height: 1.4;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.12);
+  white-space: nowrap; transition: opacity 0.1s;
+}
+.tooltip .muted { color: var(--text-secondary); }

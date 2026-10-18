@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why Babies Skip Weekends</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+<header class="intro">
+  <p class="kicker">How histograms work</p>
+  <h1>Why do fewer babies arrive on weekends?</h1>
+  <p class="lede">
+    We counted US births for every single day from 1994 to 2014: 7,670 days and over 85 million babies,
+    about 4 million per year. A list of 7,670 numbers tells you nothing at a glance. A histogram does.
+  </p>
+</header>
+
+<section class="scrolly">
+  <figure class="sticky">
+    <div id="chart"></div>
+    <div class="legend" id="legend"></div>
+  </figure>
+
+  <article class="steps">
+    <div class="step">
+      <h2>Sorting days into bins</h2>
+      <p>
+        Each of the 7,670 days had a certain number of births. A histogram sorts those days into ranges called
+        <strong>bins</strong>, here we sort it into 5,000 to 10,000 births, 10,000 to 15,000, and above 15,000.
+      </p>
+      <p>
+        Each bar shows how many days ended up in that bin. The taller the bar, the more days had that many births.
+        With these three wide bins, we learn that most days had 10,000 to 15,000 births.
+        Only 17 of the 7,670 days had more than 15,000 births, so the third bar is barely visible.
+      </p>
+    </div>
+
+    <div class="step">
+      <h2>Common mistake: too many bins</h2>
+      <p>
+        With about 200 narrow bins, the chart shows more detail, but it also gets harder to read.
+        Each bin holds only a few days now, so the bars jump up and down a lot more, creating noise.
+        Some of the extra detail is valid, though. Notice how the left peak splits into two humps?
+        We'll find out why a little further down, but through the lens of a better design.
+      </p>
+    </div>
+
+    <div class="step">
+      <h2>Fewer bins, clearer picture</h2>
+      <p>
+        With about 30 bins, the noise is smoothed out, less distractions, and the big picture is easier to read:
+        <strong>two peaks</strong>, one around 8,000 births and one around 12,300.
+        This shape is called <em>bimodal</em>, one of the typical shapes to look for in a histogram.
+        It is usually a hint that two different groups are mixed in the data.
+      </p>
+    </div>
+
+    <div class="step">
+      <h2>When the average misleads</h2>
+      <p>
+        Imagine a room with five kids aged 5 and two grandparents aged 75.
+        Their average age is 25, but nobody in the room is 25.
+      </p>
+      <p>
+        Our data has the same problem. The <strong>mean</strong> is 11,132 births per day
+        (85.4 million births ÷ 7,670 days). It lands between the two peaks,
+        and most days are clearly above or clearly below it.
+      </p>
+      <p>
+        The <strong>median</strong>, the middle day when you sort them all, is 11,941.
+        It sits closer to the big peak, but it doesn't describe the small one either.
+      </p>
+      <p>So who are these two groups? The next step shows it.</p>
+    </div>
+
+    <div class="step">
+      <h2>Weekdays vs. weekends</h2>
+      <p>
+        Colour each day by weekday or weekend and the two peaks separate.
+        On an average weekday about 12,300 babies are born, on a weekend day only about 8,100.
+        Many births are planned, like C-sections and inductions, and hospitals schedule them on weekdays.
+      </p>
+      <p>
+        Just like the kids and grandparents, the mean mixed two groups: five weekdays and two weekend days per week.
+        Now that we know what to look for, we can use narrower bins again, about 80, to see more detail.
+        The two humps in the left peak are back: those are Saturdays and Sundays,
+        about 8,600 births on an average Saturday, only about 7,600 on a Sunday.
+      </p>
+    </div>
+
+    <div class="step">
+      <h2>The odd ones out</h2>
+      <p>
+        A few blue weekdays sit in the low peak: 152 of all 5,478 weekdays.
+        These are <strong>outliers</strong>, values that don't fit their group.
+        Every single one of them is a holiday or a day right next to one:
+        Christmas, New Year, July 4th, Thanksgiving, Memorial Day and Labor Day.
+        Hospitals avoid scheduling births on those days, just like on weekends.
+      </p>
+    </div>
+  </article>
+</section>
+
+<footer class="outro">
+  <h2>What we learned about histograms</h2>
+  <p>
+    The bin size decides what a histogram can show: too few bins hide the shape, more bins add detail but also noise.
+    The shape itself tells a story. Two peaks hint at two hidden groups, and in that case the mean alone can be misleading.
+    Always look at the distribution, not just the average.
+  </p>
+
+  <p class="credits">
+    Data: CDC/NCHS (1994–2003) and U.S. Social Security Administration (2000–2014), via
+    <a href="https://github.com/fivethirtyeight/data/tree/master/births">FiveThirtyEight</a>,
+    from the article <a href="https://abc7news.com/babies-friday-the-13th-parenting-five-thirty-eight/1337952/">"Some People Are Too Superstitious To Have A Baby On Friday The 13th"</a> by Carl Bialik.
+    This page uses CDC data for 1994–2003 and SSA data for 2004–2014. Where the two sources overlap, SSA counts are about 2% higher.
+  </p>
+  <p class="credits">
+    Dataset featured in #MakeoverMonday 2021, Week 26
+    (<a href="https://thedailyviz.com/2016/09/17/how-common-is-your-birthday-dailyviz/">How Common is Your Birthday?</a>).
+    Histogram explanation based on
+    <a href="https://serc.carleton.edu/mathyouneed/geomajors/histograms/index.html">How Do I Create and Interpret Histograms?</a> (SERC, Carleton College)
+    and <a href="https://www.data-to-viz.com/graph/histogram.html">data-to-viz.com: Histogram</a>.
+  </p>
+  <p class="credits">Group: Name 1, Name 2, Name 3</p>
+</footer>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
