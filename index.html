@@ -7,16 +7,22 @@
   <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
-<header class="intro">
-  <p class="kicker">How histograms work</p>
-  <h1>Why do fewer babies arrive on weekends?</h1>
-  <p class="lede">
-    We counted US births for every single day from 1994 to 2014: 7,670 days and over 85 million babies,
-    about 4 million per year. A list of 7,670 numbers tells you nothing at a glance. A histogram does.
-  </p>
+<header class="hero">
+  <div class="hero-content">
+    <p class="kicker">How histograms work</p>
+    <h1>Why do fewer babies arrive on weekends?</h1>
+    <p class="lede">
+      We counted US births for every single day from 1994 to 2014: 7,670 days and over 85 million babies,
+      about 4 million per year. A list of 7,670 numbers tells you nothing at a glance. A histogram does.
+    </p>
+  </div>
+  <a class="scroll-hint" href="#story">
+    <span>Scroll down to learn more</span>
+    <span class="arrow" aria-hidden="true"></span>
+  </a>
 </header>
 
-<section class="scrolly">
+<section class="scrolly" id="story">
   <figure class="sticky">
     <div id="chart"></div>
     <div class="legend" id="legend"></div>
@@ -103,15 +109,22 @@
 </section>
 
 <footer class="outro">
+  <div class="outro-content">
   <h2>What we learned about histograms</h2>
-  <p>
-    The bin size decides what a histogram can show: too few bins hide the shape, more bins add detail but also noise.
-    The shape itself tells a story. Two peaks hint at two hidden groups, and in that case the mean alone can be misleading.
-    Always look at the distribution, not just the average.
-  </p>
+    <p>
+      The bin size decides what a histogram can show: too few bins hide the shape, more bins add detail but also noise.
+      The shape itself tells a story. Two peaks hint at two hidden groups, and in that case the mean alone can be misleading.
+      Bars that sit where they don't belong point to outliers worth a closer look.
+    </p>
+    <p>
+      And the answer to our question? Fewer babies arrive on weekends because many births are planned,
+      and hospitals schedule them on weekdays. A histogram made that visible in a single chart.
+      Always look at the distribution, not just the average.
+    </p>
 
   <p class="credits">
-    Data: CDC/NCHS (1994–2003) and U.S. Social Security Administration (2000–2014), via
+    <p>Data:</p>
+    CDC/NCHS (1994–2003) and U.S. Social Security Administration (2000–2014), via
     <a href="https://github.com/fivethirtyeight/data/tree/master/births">FiveThirtyEight</a>,
     from the article <a href="https://abc7news.com/babies-friday-the-13th-parenting-five-thirty-eight/1337952/">"Some People Are Too Superstitious To Have A Baby On Friday The 13th"</a> by Carl Bialik.
     This page uses CDC data for 1994–2003 and SSA data for 2004–2014. Where the two sources overlap, SSA counts are about 2% higher.
@@ -123,7 +136,8 @@
     <a href="https://serc.carleton.edu/mathyouneed/geomajors/histograms/index.html">How Do I Create and Interpret Histograms?</a> (SERC, Carleton College)
     and <a href="https://www.data-to-viz.com/graph/histogram.html">data-to-viz.com: Histogram</a>.
   </p>
-  <p class="credits">Group: Name 1, Name 2, Name 3</p>
+  <p class="credits">A student project by Josif Cicio and Julia Hummer</p>
+  </div>
 </footer>
 
 <script type="module" src="/src/main.js"></script>
