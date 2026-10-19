@@ -12,22 +12,6 @@
   --outro-overlay: rgb(252 252 251 / 0.55);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    --surface-1: #1a1a19;
-    --surface-2: #232322;
-    --text-primary: #f0efec;
-    --text-secondary: #c3c2b7;
-    --text-muted: #8f8e86;
-    --grid: #2e2e2c;
-    --series-1: #3987e5;
-    --series-2: #d95926;
-    --hero-overlay: rgb(26 26 25 / 0.6);
-    --outro-overlay: rgb(26 26 25 / 0.85);
-  }
-}
-
 * { box-sizing: border-box; }
 
 body {
