@@ -76,6 +76,14 @@ h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; margin: 8px 0 16px; }
 }
 .outro-content { max-width: 680px; margin: 0 auto; }
 
+.outro h3 { font-size: 1.1rem; margin: 32px 0 8px; }
+.data-note { font-size: 0.95rem; color: var(--text-secondary); }
+.data-table-wrap { overflow-x: auto; margin: 12px 0 24px; }
+.data-table { border-collapse: collapse; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+.data-table th, .data-table td { padding: 6px 14px; text-align: right; border-bottom: 1px solid var(--grid); }
+.data-table th { font-weight: 600; color: var(--text-primary); }
+.data-table .more td { text-align: center; color: var(--text-muted); border-bottom: none; }
+
 /* Scrollytelling layout: text left, sticky chart right */
 .scrolly {
   display: grid;

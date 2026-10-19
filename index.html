@@ -12,7 +12,7 @@
     <p class="kicker">How histograms work</p>
     <h1>Why do fewer babies arrive on weekends?</h1>
     <p class="lede">
-      We counted US births for every single day from 1994 to 2014: 7,670 days and over 85 million babies,
+      Between 1994 and 2014, the US recorded births for every single day: 7,670 days and over 85 million babies,
       about 4 million per year. A list of 7,670 numbers tells you nothing at a glance. A histogram does.
     </p>
   </div>
@@ -122,8 +122,29 @@
       Always look at the distribution, not just the average.
     </p>
 
+    <h3>What the data looks like</h3>
+    <p class="data-note">
+      Each row is one day. The page uses the <code>births</code> column for the histogram
+      and <code>day_of_week</code> (1 = Monday, 7 = Sunday) to split weekdays from weekends.
+    </p>
+    <div class="data-table-wrap">
+      <table class="data-table">
+        <thead>
+        <tr><th>year</th><th>month</th><th>date_of_month</th><th>day_of_week</th><th>births</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>1994</td><td>1</td><td>1</td><td>6</td><td>8,096</td></tr>
+        <tr><td>1994</td><td>1</td><td>2</td><td>7</td><td>7,772</td></tr>
+        <tr><td>1994</td><td>1</td><td>3</td><td>1</td><td>10,142</td></tr>
+        <tr><td>1994</td><td>1</td><td>4</td><td>2</td><td>11,248</td></tr>
+        <tr><td>1994</td><td>1</td><td>5</td><td>3</td><td>11,053</td></tr>
+        <tr class="more"><td colspan="5">… 7,665 more rows</td></tr>
+        </tbody>
+      </table>
+    </div>
+
   <p class="credits">
-    <p>Data:</p>
+    <p>Data Source:</p>
     CDC/NCHS (1994–2003) and U.S. Social Security Administration (2000–2014), via
     <a href="https://github.com/fivethirtyeight/data/tree/master/births">FiveThirtyEight</a>,
     from the article <a href="https://abc7news.com/babies-friday-the-13th-parenting-five-thirty-eight/1337952/">"Some People Are Too Superstitious To Have A Baby On Friday The 13th"</a> by Carl Bialik.
@@ -132,6 +153,8 @@
   <p class="credits">
     Dataset featured in #MakeoverMonday 2021, Week 26
     (<a href="https://thedailyviz.com/2016/09/17/how-common-is-your-birthday-dailyviz/">How Common is Your Birthday?</a>).
+  </p>
+    <p class="credits">
     Histogram explanation based on
     <a href="https://serc.carleton.edu/mathyouneed/geomajors/histograms/index.html">How Do I Create and Interpret Histograms?</a> (SERC, Carleton College)
     and <a href="https://www.data-to-viz.com/graph/histogram.html">data-to-viz.com: Histogram</a>.
