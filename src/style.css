@@ -123,6 +123,11 @@ h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; margin: 8px 0 16px; }
   .step p { padding: 8px 16px 16px; border-radius: 0 0 12px 12px; }
 }
 
+.shapes-img { display: block; width: 100%; height: auto; margin: 16px 0 32px; }
+.shape-list { padding-left: 1.2em; margin: 0 0 32px; font-size: 0.95rem; }
+.shape-list li { margin-bottom: 6px; color: var(--text-secondary); }
+.shape-list strong { color: var(--text-primary); }
+
 /* Chart */
 #chart svg text { fill: var(--text-secondary); font-size: 12px; }
 #chart .axis-label { font-weight: 600; }
